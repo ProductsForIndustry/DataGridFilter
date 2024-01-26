@@ -1,4 +1,4 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:control="clr-namespace:FilterDataGrid"
@@ -250,15 +250,17 @@
                                                 x:Name="ButtonRemoveAll"
                                                 Grid.Row="0"
                                                 Grid.Column="2"
-                                                Background="Transparent"
                                                 BorderBrush="Transparent"
                                                 BorderThickness="0"
                                                 Command="{x:Static control:FilterDataGrid.RemoveAllFilter}"
                                                 Cursor="Hand"
                                                 ToolTip="{Binding RelativeSource={RelativeSource AncestorType={x:Type control:FilterDataGrid}}, Path=Translate.RemoveAll}"
                                                 ToolTipService.Placement="Left"
-                                                ToolTipService.VerticalOffset="24">
-                                                <Button.Content>
+                                                ToolTipService.VerticalOffset="24"
+                                                Content="🛇"
+                                                Background="{DynamicResource AccentBrush}"
+                                                Foreground="White">
+                                                <!--<Button.Content>
                                                     <Grid SnapsToDevicePixels="False" UseLayoutRounding="True">
                                                         <Path
                                                             Width="13"
@@ -277,7 +279,7 @@
                                                             </Path.Style>
                                                         </Path>
                                                     </Grid>
-                                                </Button.Content>
+                                                </Button.Content>-->
                                             </Button>
 
                                             <Button
@@ -288,7 +290,10 @@
                                                 Focusable="false"
                                                 Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle,
                                                                                               TypeInTargetAssembly={x:Type DataGrid}}}"
-                                                Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                                                Visibility="Collapsed"
+                                                 />
+
+                                            <!--Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"-->
 
                                             <DataGridColumnHeadersPresenter
                                                 x:Name="PART_ColumnHeadersPresenter"
@@ -416,8 +421,8 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Data="{StaticResource Filter}"
-                Fill="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=Foreground}"
-                Stretch="Uniform" />
+                Fill="White"
+                Stretch="Uniform"/>
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="control:FilterState.IsFiltered" Value="True">
@@ -488,7 +493,7 @@
                     <SolidColorBrush
                         x:Key="BackgroundColor"
                         Opacity="1"
-                        Color="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=Background, Converter={StaticResource SolidBrushToColorConverter}}" />
+                        Color="{Binding RelativeSource={RelativeSource AncestorType={x:Type control:FilterDataGrid}}, Path=Background, Converter={StaticResource SolidBrushToColorConverter}}" />
                     <SolidColorBrush
                         x:Key="BorderColor"
                         Opacity="0.4"
@@ -726,6 +731,7 @@
                                             HorizontalContentAlignment="Stretch"
                                             Command="{x:Static control:FilterDataGrid.IsChecked}"
                                             CommandParameter="{Binding}"
+                                            Foreground="{DynamicResource BlackBrush}"
                                             FontWeight="Normal"
                                             IsChecked="{Binding IsChecked}"
                                             IsThreeState="False">
@@ -827,7 +833,9 @@
                                 Command="{x:Static control:FilterDataGrid.ApplyFilter}"
                                 Content="{Binding Translate.Ok}"
                                 Cursor="Hand"
-                                TabIndex="3" />
+                                TabIndex="3" 
+                                Style="{DynamicResource ButtonEmptyStyle}" 
+                                Template="{DynamicResource ButtonControlTemplate}"/>
 
                             <Button
                                 Width="100"
@@ -836,7 +844,9 @@
                                 Command="{x:Static control:FilterDataGrid.CancelFilter}"
                                 Content="{Binding Translate.Cancel}"
                                 Cursor="Hand"
-                                TabIndex="4" />
+                                TabIndex="4"                                
+                                Style="{DynamicResource ButtonEmptyStyle}" 
+                                Template="{DynamicResource ButtonControlTemplate}"/>
                         </UniformGrid>
 
                         <!--  Row 4: RESIZE GRIP  -->

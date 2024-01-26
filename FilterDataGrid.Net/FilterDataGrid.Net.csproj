@@ -52,7 +52,8 @@
       Removing net.5.0 support
     </PackageReleaseNotes>
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>C:\Users\GILLES\source\repos\macgile\FilterDataGrid.Production\NuGet\FilterDataGrid.snk</AssemblyOriginatorKeyFile>
+    <!--<AssemblyOriginatorKeyFile>C:\Users\GILLES\source\repos\macgile\FilterDataGrid.Production\NuGet\FilterDataGrid.snk</AssemblyOriginatorKeyFile>-->
+	  <AssemblyOriginatorKeyFile>\\pfi-fs01.pfi.net.au\it deployment$\_PFI - Applications\Certificates\PFI Applications.pfx</AssemblyOriginatorKeyFile>
 
   </PropertyGroup>
 
