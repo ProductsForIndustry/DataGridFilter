@@ -11,8 +11,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
 using System.Runtime.Serialization;
+using System.Windows.Controls;
 
 // ReSharper disable PropertyCanBeMadeInitOnly.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
@@ -39,7 +39,7 @@ namespace FilterDataGrid
 
         #region Public Properties
 
-        [DataMember (Name = "FilteredItems")]
+        [DataMember(Name = "FilteredItems")]
         public HashSet<object> PreviouslyFilteredItems { get; set; }
 
         [DataMember(Name = "FieldName")]

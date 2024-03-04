@@ -54,7 +54,8 @@ namespace FilterDataGrid
     }
 
     // Contributor : dankovics.jozsef
-    public enum TranslatableElements {
+    public enum TranslatableElements
+    {
 
         /// <summary>
         ///     (Select all)
@@ -163,9 +164,11 @@ namespace FilterDataGrid
         public string DisplayName => SelectedLanguage.Culture.DisplayName;
         public string EnglishName => SelectedLanguage.Language;
 
-        public Local Language {
+        public Local Language
+        {
             get => language;
-            set {
+            set
+            {
                 language = value;
 
                 var type = typeof(Loc);
@@ -470,12 +473,14 @@ namespace FilterDataGrid
     }
 
     // Contributor : dankovics.jozsef
-    internal class LanguageDictionary : ILanguageDictionary {
+    internal class LanguageDictionary : ILanguageDictionary
+    {
 
         #region Public Constructors
 
         public LanguageDictionary(string language, CultureInfo culture,
-            Dictionary<TranslatableElements, string> dictionary) {
+            Dictionary<TranslatableElements, string> dictionary)
+        {
             Language = language;
             Culture = culture;
             Dictionary = dictionary;
